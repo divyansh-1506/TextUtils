@@ -2,9 +2,17 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 
+// Dark different tones
+// rgb(55 99 143) purple tone
+// rgb(23 57 91)
+
+
+
+
 export default function Navbar(props) {
+   
   return (
-    <nav className="navbar navbar-expand-lg bg-light">
+    <nav className={`navbar navbar-expand-lg bg-${props.mode} ${props.mode==='dark'?'navbar-dark':''}`}>
   <div className="container-fluid">
     <a className="navbar-brand" href="/">{props.title}</a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,10 +33,14 @@ export default function Navbar(props) {
           <a className="nav-link" href="/">{props.item4}</a>
         </li>
       </ul>
-      <form className="d-flex" role="search">
+      {/* <form className="d-flex" role="search">
         <input className="form-control me-2" type="search" placeholder="Type here to search" aria-label="Search"/>
-        <button className="btn btn-outline-success" type="submit">Search</button>
-      </form>
+        <button className="btn btn-outline-success" type="submit">Search</button> */}
+        <div className="form-check form-switch">
+        <input className="form-check-input" type="checkbox" onClick = {props.toggleMode} role="switch" id="flexSwitchCheckDefault"/>
+        <label className= {`form-check-label ${props.mode==='light'?'text-dark':'text-light'}`} htmlFor="flexSwitchCheckDefault" >Dark mode</label>
+        </div>
+      {/* </form> */}
     </div>
   </div>
 </nav>

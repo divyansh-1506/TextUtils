@@ -13,27 +13,30 @@ export default function About() {
     })
 
     var handleOnclick = () => {
-        if(mode == "dark"){
+        if(mode === "dark"){
         setstyle({
             backgroundColor : 'black',
             color : 'white',
             // border : '4px solid black',
         })
+        document.body.style.backgroundColor = 'black';
+        // document.getElementsById() = 
         setMode("light");
     }
-        else
-        {
-            setstyle({
-                backgroundColor : 'white',
-                color : 'black',
-            })
+    else
+    {
+        setstyle({
+            backgroundColor : 'white',
+            color : 'black',
+        })
+        document.body.style.backgroundColor = 'white';
             setMode("dark");
 
         }
 
     }
   return (
-    <div className='container my-4'  style={mystyle}>
+    <div className="container my-4" style={mystyle}>
         <h1 className='my-4'>About Us</h1>
       <div className="accordion" id="accordionExample" style={mystyle}>
         <div className="accordion-item" style={mystyle}>
