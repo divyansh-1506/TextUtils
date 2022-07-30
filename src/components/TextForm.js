@@ -17,13 +17,22 @@ export default function TextForm(props) {
     let c = text.toLowerCase();
     setText(c);
   };
+
+  // Copy text logic
+  const handleCopy = () => {
+    var text = document.getElementById("mytext");
+    text.select();
+    navigator.clipboard.writeText(text.value);
+    document.getSelection().removeAllRanges();
+  };
+
+  //   General use functions
   const clearText = () => {
     setText("");
   };
 
   const wordCount = () => {
-    if (text === "") return 0;
-    else return text.split(" ").length;
+    return text.split(" ").filter((element)=>{return element.length!==0}).length;
   };
 
   //Onchange function is mandatory in textbox to notice and reflect changes or typed text
@@ -41,7 +50,7 @@ export default function TextForm(props) {
             className="form-control"
             onChange={handleOnChange}
             value={text}
-            id="exampleFormControlTextarea1"
+            id="mytext"
             placeholder="Start Typing"
             rows="6"
             style={{
@@ -56,10 +65,13 @@ export default function TextForm(props) {
         <button className="btn btn-primary" onClick={upperClick}>
           Convert to Uppercase
         </button>
-        <button className="btn btn-primary mx-2" onClick={lowerClick}>
+        <button className="btn btn-primary mx-2 my-2" onClick={lowerClick}>
           Convert to Lowercase
         </button>
-        <button className="btn btn-primary mx-2" onClick={clearText}>
+        <button className="btn btn-primary mx-2 my-2" onClick={handleCopy}>
+          Copy text
+        </button>
+        <button className="btn btn-primary mx-2 my-2" onClick={clearText}>
           Clear
         </button>
         {/* <button className="btn btn-primary" onClick={handleOnClick}>Convert to Uppercase</button> */}
