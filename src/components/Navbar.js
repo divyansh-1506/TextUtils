@@ -57,4 +57,4 @@ item4: PropTypes.string
 }
 
 
-Navbar.defaultProps = {title : "titleHere", item1 : "item1", item2 : "item2"}
+Navbar.defaultProps = {title : "titleHere", item1 : "item1"}
