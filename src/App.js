@@ -33,6 +33,7 @@ function App() {
           toggleMode={toggleMode}
         />
         <Routes>
+          <Route path="/TextUtils" element={<TextForm mode={mode} />}></Route>
           <Route path="/" element={<TextForm mode={mode} />}></Route>
 
           {/* <Route path="/about" element={<About mode={mode}></About>}></Route> */}
